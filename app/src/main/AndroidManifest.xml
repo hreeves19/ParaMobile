@@ -17,7 +17,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".PhoneBookActivity"></activity>
+        <activity android:name=".PhoneBookActivity" />
+        <activity android:name=".GameActivity" />
+        <activity android:name=".EmergencyActivity" />
+        <activity android:name=".MessengerActivity"></activity>
     </application>
 
 </manifest>

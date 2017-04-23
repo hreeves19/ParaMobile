@@ -28,11 +28,11 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
 
     private long smokeStartTime;
     private long missileStartTime;
-    private long missileElapsed;
 
     private MainThread thread;
     private Background bg;
     private Player player;
+    private ExitButton exitButton;
     private ArrayList<SmokePuff> smoke;
     private ArrayList<Missile> missiles;
 
@@ -84,6 +84,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
 
         bg = new Background(BitmapFactory.decodeResource(getResources(), R.drawable.grassbg1));
         player = new Player(BitmapFactory.decodeResource(getResources(), R.drawable.helicopter), (int)(65 * BITMAPSCALE), (int)(25 * BITMAPSCALE), 3);
+        exitButton = new ExitButton(BitmapFactory.decodeResource(getResources(), R.drawable.exiticon), (int)(5 * BITMAPSCALE), (int)(5 * BITMAPSCALE));
         smoke = new ArrayList<>();
         missiles = new ArrayList<>();
 
@@ -100,6 +101,8 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+
+//        event.getX()
 
         if(event.getAction() == MotionEvent.ACTION_DOWN) {
             if(!player.getPlaying()) {
@@ -123,6 +126,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
         if(player.getPlaying()) {
             bg.update();
             player.update();
+            exitButton.update();
 
             //add missiles on timer
             long missileElapsed = (System.nanoTime() - missileStartTime) / 1000000;
@@ -199,8 +203,8 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
         final float scaleFactorX = ((float)getWidth()/WIDTH);
         final float scaleFactorY = ((float)getHeight()/HEIGHT);
 
-        System.out.println("Screen Width " + scaleFactorX);
-        System.out.println("Screen Height " + scaleFactorY);
+//        System.out.println("Screen Width " + scaleFactorX);
+//        System.out.println("Screen Height " + scaleFactorY);
 
 
         if(canvas != null) {
@@ -208,6 +212,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
             canvas.scale(scaleFactorX, scaleFactorY);
             bg.draw(canvas);
             player.draw(canvas);
+            exitButton.draw(canvas);
 
             for(SmokePuff sp: smoke) {
                 sp.draw(canvas);

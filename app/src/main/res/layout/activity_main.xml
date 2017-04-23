@@ -20,4 +20,16 @@
         android:background="@color/colorAccent"
         app:srcCompat="@android:drawable/sym_action_chat"
         android:onClick="moveToMessenger"/>
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/imageButton"
+        android:layout_marginEnd="14dp"
+        android:layout_marginRight="14dp"
+        app:srcCompat="@android:drawable/ic_lock_idle_low_battery"
+        android:onClick="moveToGame"/>
 </android.widget.RelativeLayout>

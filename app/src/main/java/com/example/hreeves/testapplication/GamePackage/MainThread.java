@@ -1,7 +1,9 @@
-package com.example.hreeves.testapplication;
+package com.example.hreeves.testapplication.GamePackage;
 
 import android.graphics.Canvas;
 import android.view.SurfaceHolder;
+
+import com.example.hreeves.testapplication.GamePackage.GamePanel;
 
 /**
  * Created by dgray on 4/22/2017.
@@ -19,8 +21,6 @@ public class MainThread extends Thread {
     public MainThread(SurfaceHolder surfaceHolder, GamePanel gamePanel) {
 
         super();
-
-        System.out.println("Thread activated");
 
         this.surfaceHolder = surfaceHolder;
         this.gamePanel = gamePanel;

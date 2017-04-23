@@ -69,12 +69,12 @@ public class Missile extends GameObject {
 
     }
 
-    /*
-    @Override
-    public int getWidth() {
-        //offset slightly for more realistic collision detection
-        return getWidth() - 10;
-    }
-    */
+
+//    @Override
+//    public int getWidth() {
+//        //offset slightly for more realistic collision detection
+//        return getWidth() - 10;
+//    }
+
 
 }

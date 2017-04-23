@@ -46,7 +46,7 @@ public class MessengerActivity extends AppCompatActivity {
                                 .getCurrentUser()
                                 .getDisplayName())
                 );
-
+        //Random Comment
         // Clear the input
         input.setText("");
     }

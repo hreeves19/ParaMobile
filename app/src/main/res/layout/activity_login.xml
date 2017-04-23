@@ -8,44 +8,61 @@
     android:background="@drawable/gradient_background">
 
 
-    <LinearLayout
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:gravity="center"
+        android:layout_above="@+id/messageRegisterLogin"
+        android:layout_alignLeft="@+id/emailAddress"
+        android:layout_alignStart="@+id/emailAddress"
+        android:layout_marginBottom="71dp" />
+
+    <TextView
+        android:id="@+id/messageRegisterLogin"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_alignParentTop="true"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:gravity="center"
+        android:onClick="register"
+        android:text="Don't have an account? Register here!"
+        android:layout_above="@+id/Login"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="146dp">
+        />
 
-        <EditText
-            android:id="@+id/emailAddress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Email Address"
-            android:inputType="textEmailAddress" />
+    <Button
+        android:id="@+id/Login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="submit"
+        android:text="Login"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="16dp" />
 
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Password"
-            android:inputType="textPassword" />
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        app:srcCompat="@mipmap/ic_launcher"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp" />
 
-        <Button
-            android:id="@+id/Login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="submit"
-            android:text="Login" />
+    <EditText
+        android:id="@+id/emailAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Email Address"
+        android:inputType="textEmailAddress"
+        android:gravity="center"
+        android:layout_above="@+id/password"
+        android:layout_centerHorizontal="true" />
 
-        <Button
-            android:id="@+id/register"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="register"
-            android:text="Register" />
-
-    </LinearLayout>
 </android.widget.RelativeLayout>

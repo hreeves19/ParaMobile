@@ -64,9 +64,6 @@ public class LoginActivity extends AppCompatActivity {
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(intent);
                             finish();
-                            Toast.makeText(LoginActivity.this, "Welcome " + firebaseAuth.getCurrentUser().getDisplayName() +
-                                            "! You have successfully signed in!",
-                                    Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(LoginActivity.this, "Email or password is incorrect. Please try again!",
                                     Toast.LENGTH_SHORT).show();

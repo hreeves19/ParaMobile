@@ -22,7 +22,8 @@
         <activity android:name=".EmergencyActivity" />
         <activity android:name=".MessengerActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".ChatRoomListActivity"></activity>
     </application>
 
 </manifest>

@@ -19,7 +19,7 @@
         android:layout_marginTop="17dp"
         android:background="@color/colorAccent"
         app:srcCompat="@android:drawable/sym_action_chat"
-        android:onClick="moveToMessenger"/>
+        android:onClick="moveToMessenger" />
 
     <ImageButton
         android:id="@+id/imageButton2"
@@ -31,5 +31,16 @@
         android:layout_marginEnd="14dp"
         android:layout_marginRight="14dp"
         app:srcCompat="@android:drawable/ic_lock_idle_low_battery"
-        android:onClick="moveToGame"/>
+        android:onClick="moveToGame"
+        android:background="@color/colorAccent" />
+
+    <Button
+        android:id="@+id/logoutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="19dp"
+        android:text="Logout"
+        android:onClick="goToLogin"/>
 </android.widget.RelativeLayout>

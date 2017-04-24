@@ -1,13 +1,18 @@
 package com.example.hreeves.testapplication.GamePackage;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.View;
 
+import com.example.hreeves.testapplication.MainActivity;
+import com.example.hreeves.testapplication.MessengerActivity;
 import com.example.hreeves.testapplication.R;
 
 import java.util.ArrayList;
@@ -26,9 +31,12 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
 
     public static final int MOVESPEED = -10;
 
+    public boolean exitPressed = false;
+
     private long smokeStartTime;
     private long missileStartTime;
 
+    private Context mContext;
     private MainThread thread;
     private Background bg;
     private Player player;
@@ -41,6 +49,8 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     public GamePanel(Context context) {
 
         super(context);
+
+        mContext = context;
 
         //Add callback to the surfaceholder to intercept events
         getHolder().addCallback(this);
@@ -102,9 +112,17 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
 
-//        event.getX()
-
         if(event.getAction() == MotionEvent.ACTION_DOWN) {
+
+            if(event.getX() >= 2190 && event.getX() <= 2370
+                    && event.getY() >= 0 && event.getY() <= 190) {
+
+                System.out.println("Exit button pressed!");
+                ((Activity) mContext).finish();
+                exitPressed = true;
+
+            }
+
             if(!player.getPlaying()) {
                 player.setPlaying(true);
             } else {
@@ -167,6 +185,36 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
                     break;
 
                 }
+
+            }
+
+            if(exitPressed) {
+                player.setPlaying(false);
+                thread.setRunning(false);
+
+                boolean retry = true;
+                int counter = 0;
+
+                while(retry && counter < 1000) {
+
+                    counter++;
+                    try {
+
+//                        mContext.startActivity(new Intent(mContext, MainActivity.class));
+
+
+                        thread.setRunning(false);
+                        thread.join();
+
+                        retry = false;
+
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+
+
 
             }
 

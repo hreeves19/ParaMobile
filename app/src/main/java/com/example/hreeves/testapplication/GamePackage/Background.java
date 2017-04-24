@@ -21,8 +21,8 @@ public class Background {
 
     public void update() {
 
-        System.out.println("Width of image " + image.getWidth());
-        System.out.println("Height of image " + image.getHeight());
+//        System.out.println("Width of image " + image.getWidth());
+//        System.out.println("Height of image " + image.getHeight());
 
         x += dx;
 

@@ -113,4 +113,10 @@ public class RegisterActivity extends AppCompatActivity {
         builder.setMessage("Would you like to edit your profile?").setPositiveButton("Yes", dialogClickListener)
                 .setNegativeButton("No", dialogClickListener).show();
     }
+
+    public void goBackToLogin(View v) {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }

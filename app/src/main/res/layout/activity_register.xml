@@ -11,20 +11,19 @@
         android:id="@+id/register"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="39dp"
+        android:layout_marginBottom="12dp"
         android:onClick="registerInformation"
         android:text="Register"
         android:background="@drawable/custom_button"
-        />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="125dp"
-        android:layout_height="125dp"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
         android:layout_marginTop="23dp"
-        app:srcCompat="@android:drawable/sym_def_app_icon"
+        app:srcCompat="@drawable/burrak"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
@@ -60,5 +59,16 @@
         android:ems="10"
         android:hint="Retype Password"
         android:inputType="textPassword" />
+
+    <TextView
+        android:id="@+id/goBackToLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go Back To Login"
+        android:clickable="true"
+        android:onClick="goBackToLogin"
+        android:layout_above="@+id/register"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"/>
 
 </android.widget.RelativeLayout>

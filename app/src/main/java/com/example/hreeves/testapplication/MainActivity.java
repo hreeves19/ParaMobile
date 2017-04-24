@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
         //User already signed in
         if(firebaseAuth.getCurrentUser() != null) {
-            MessageBox("You are already signed in! " + FirebaseAuth.getInstance().getCurrentUser().getEmail());
+            MessageBox(FirebaseAuth.getInstance().getCurrentUser().getEmail() + " has signed in!");
         } else {
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
@@ -34,13 +34,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void moveToMessenger(View v) {
-        Intent intent = new Intent(this, MessengerActivity.class);
+        Intent intent = new Intent(this, ChatRoomListActivity.class);
         startActivity(intent);
-        finish();
     }
 
     public void moveToGame(View v) {
         Intent intent = new Intent(this, GameActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public void goToLogin(View v) {
+        firebaseAuth.signOut();
+        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         finish();
     }

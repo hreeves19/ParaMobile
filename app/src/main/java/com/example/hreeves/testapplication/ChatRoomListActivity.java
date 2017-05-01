@@ -25,6 +25,10 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * Created by hreeves on 4/23/2017.
+ */
+
 public class ChatRoomListActivity extends AppCompatActivity {
 
     private EditText roomNameText;

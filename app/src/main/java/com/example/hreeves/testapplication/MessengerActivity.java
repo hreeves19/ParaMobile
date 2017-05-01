@@ -20,6 +20,10 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+/**
+ * Created by hreeves on 4/23/2017.
+ */
+
 public class MessengerActivity extends AppCompatActivity {
 
     private TextView timeSentAt;

@@ -12,6 +12,10 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+/**
+ * Created by hreeves on 4/23/2017.
+ */
+
 public class ProfileActivity extends AppCompatActivity {
 
     //Firebase user

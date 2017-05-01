@@ -18,6 +18,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+/**
+ * Created by hreeves on 4/23/2017.
+ */
+
 public class RegisterActivity extends AppCompatActivity {
 
     private EditText emailText;

@@ -58,12 +58,12 @@ public class MessengerActivity extends AppCompatActivity {
         root.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                appendChatConversation(dataSnapshot);
+                appendChatConversation(dataSnapshot); //As soon as the message is added to the database
             }
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-                appendChatConversation(dataSnapshot);
+                appendChatConversation(dataSnapshot); //As soon as a child in the database is changed
             }
 
             @Override
@@ -83,6 +83,7 @@ public class MessengerActivity extends AppCompatActivity {
         });
     }
 
+    //Purpose: To add a message
     public void addMessage(View v) {
 
         Map<String,Object> map = new HashMap<String,Object>();

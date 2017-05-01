@@ -24,6 +24,7 @@ public class ProfileActivity extends AppCompatActivity {
     //Database referencing
     private DatabaseReference databaseReference;
 
+    //Fields to hold information from the activity
     private EditText fullNameText;
     private EditText addressText;
 
@@ -50,12 +51,14 @@ public class ProfileActivity extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference();
     }
 
+    //Purpose: To move to the main page
     public void goToMain(View v) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
     }
 
+    //Purpose: To update the information on the database
     public void updateProfileChanges(View v) {
         String name = fullNameText.getText().toString().trim();
         String address = addressText.getText().toString().trim();
@@ -64,8 +67,12 @@ public class ProfileActivity extends AppCompatActivity {
 
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
-        databaseReference.child(user.getUid()).setValue(userInformation);
-
-        Toast.makeText(this, "Information saved!", Toast.LENGTH_SHORT).show();
+        //This could potentially throw a null pointer exception if a user is not signed in
+        try{
+            databaseReference.child(user.getUid()).setValue(userInformation);
+            Toast.makeText(this, "Information saved!", Toast.LENGTH_SHORT).show();
+        } catch(NullPointerException e) {
+            Toast.makeText(this, "Information could not be saved.", Toast.LENGTH_SHORT).show();
+        }
     }
 }

@@ -32,26 +32,42 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //Purpose: To display a toast message
     public void MessageBox(String input) {
 
         Toast.makeText(this, input, Toast.LENGTH_SHORT).show();
     }
 
+    //Purpose: To move to the chat room activity
     public void moveToMessenger(View v) {
         Intent intent = new Intent(this, ChatRoomListActivity.class);
         startActivity(intent);
     }
 
+    //Purpose: To move to the game activity
     public void moveToGame(View v) {
         Intent intent = new Intent(this, GameActivity.class);
         startActivity(intent);
         finish();
     }
 
+    //Purpose: To move to the login activity
     public void goToLogin(View v) {
-        firebaseAuth.signOut();
+        firebaseAuth.signOut(); //Signing user out
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    //Purpose: To move to the phonebook activity
+    public void goToPhone(View v) {
+        Intent intent = new Intent(this, PhoneBookActivity.class);
+        startActivity(intent);
+    }
+
+    //Purpose: To move to the emergency activity
+    public void goToEmergency(View v) {
+        Intent intent = new Intent(this, EmergencyActivity.class);
+        startActivity(intent);
     }
 }

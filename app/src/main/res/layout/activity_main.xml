@@ -8,7 +8,18 @@
     android:background="@drawable/gradient_background">
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/emergencyImageButton"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_above="@+id/logoutButton"
+        android:layout_alignLeft="@+id/gameImageButton"
+        android:layout_alignStart="@+id/gameImageButton"
+        android:background="@color/colorAccent"
+        app:srcCompat="@android:drawable/ic_dialog_alert"
+        android:onClick="goToEmergency"/>
+
+    <ImageButton
+        android:id="@+id/messageImageButton"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_alignParentLeft="true"
@@ -22,17 +33,17 @@
         android:onClick="moveToMessenger" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/gameImageButton"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/imageButton"
+        android:layout_alignTop="@+id/messageImageButton"
         android:layout_marginEnd="14dp"
         android:layout_marginRight="14dp"
-        app:srcCompat="@android:drawable/ic_lock_idle_low_battery"
+        android:background="@color/colorAccent"
         android:onClick="moveToGame"
-        android:background="@color/colorAccent" />
+        app:srcCompat="@android:drawable/ic_lock_idle_low_battery" />
 
     <Button
         android:id="@+id/logoutButton"
@@ -43,4 +54,15 @@
         android:layout_marginBottom="19dp"
         android:text="Logout"
         android:onClick="goToLogin"/>
+
+    <ImageButton
+        android:id="@+id/phoneImageButton"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@color/colorAccent"
+        app:srcCompat="@android:drawable/ic_menu_call"
+        android:layout_above="@+id/logoutButton"
+        android:layout_alignLeft="@+id/messageImageButton"
+        android:layout_alignStart="@+id/messageImageButton"
+        android:onClick="goToPhone"/>
 </android.widget.RelativeLayout>

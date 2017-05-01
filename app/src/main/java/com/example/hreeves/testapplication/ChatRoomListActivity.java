@@ -42,13 +42,15 @@ public class ChatRoomListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_room_list);
 
+        //Initializing fields to read from activity
         roomNameText = (EditText) findViewById(R.id.roomText);
         listOfRoomView = (ListView) findViewById(R.id.chatRoomList);
 
+        //Creating arrayadapter to populate listOfRoomViews via listOfRooms
         arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
                 listOfRooms);
 
-        listOfRoomView.setAdapter(arrayAdapter);
+        listOfRoomView.setAdapter(arrayAdapter); //Setting the arrayAdapter
 
         root.addValueEventListener(new ValueEventListener() {
             @Override
@@ -80,6 +82,7 @@ public class ChatRoomListActivity extends AppCompatActivity {
 
     }
 
+    //Purpose: To add a room
     public void addRoom(View v) {
 
         Map<String,Object> map = new HashMap<String, Object>();

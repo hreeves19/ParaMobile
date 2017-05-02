@@ -14,6 +14,7 @@ public class UserInformation {
 
     }
 
+    //Constructor to set the fields
     public UserInformation(String name, String address) {
         this.name = name;
         this.address = address;

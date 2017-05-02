@@ -15,6 +15,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+/**
+ * Created by hreeves on 4/23/2017.
+ */
+
 public class LoginActivity extends AppCompatActivity {
 
     private EditText passwordText;
@@ -29,18 +33,23 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        //Getting firebase instance
         firebaseAuth = FirebaseAuth.getInstance();
 
+        //Initializing progressDialog
         progressDialog = new ProgressDialog(this);
 
+        //Getting information from activity
         passwordText = (EditText) findViewById(R.id.password);
         emailText = (EditText) findViewById(R.id.emailAddress);
     }
 
+    //Purpose: To signin a valid user
     public void submit(View v) {
         String email = emailText.getText().toString();
         String password = passwordText.getText().toString();
 
+        //If email or password are empty
         if(TextUtils.isEmpty(email)) {
             Toast.makeText(this, "Please enter an email....", Toast.LENGTH_SHORT).show();
             return;
@@ -51,9 +60,11 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
+        //showing progressDialog loader
         progressDialog.setMessage("Attempting to sign in....");
         progressDialog.show();
 
+        //Signing in with firebase
         firebaseAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -72,6 +83,7 @@ public class LoginActivity extends AppCompatActivity {
                 });
     }
 
+    //Purpose: To move to the register activity
     public void register(View v) {
         Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);

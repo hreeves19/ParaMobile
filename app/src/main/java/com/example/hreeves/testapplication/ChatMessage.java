@@ -23,6 +23,7 @@ public class ChatMessage {
 
     }
 
+    //Getter and setters for fields messageText, messageUser, and messageTime
     public String getMessageText() {
         return messageText;
     }

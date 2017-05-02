@@ -17,6 +17,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+/**
+ * Created by hreeves on 4/23/2017.
+ */
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -39,6 +44,7 @@ public class RegisterActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
     }
 
+    //Purpose: To register a user with a valid email and password
     public void registerInformation(View v) {
         //Going to new activity
         String email = emailText.getText().toString().trim();
@@ -78,7 +84,17 @@ public class RegisterActivity extends AppCompatActivity {
                         progressDialog.dismiss();
                         if(task.isSuccessful()) {
                             //User is successfully registered
-                            Toast.makeText(RegisterActivity.this, "Registered Successfully!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this, "Registered Successfully! Please verify your email by clicking " +
+                                    "the link in the email we sent you!", Toast.LENGTH_LONG).show();
+                            FirebaseUser user = firebaseAuth.getCurrentUser();
+
+                            //Making sure that a user is signed in
+                            if(user != null)
+                            {
+                                user.sendEmailVerification(); //Sending verification email
+                            } else {
+                                return;
+                            }
                             editProfile();
                         } else {
                             Toast.makeText(RegisterActivity.this, "Could not register successfully....", Toast.LENGTH_SHORT).show();
@@ -87,6 +103,7 @@ public class RegisterActivity extends AppCompatActivity {
                 });
     }
 
+    //Purpose: To move to edit profile
     public void editProfile() {
         DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
             @Override
@@ -109,11 +126,13 @@ public class RegisterActivity extends AppCompatActivity {
             }
         };
 
+        //Showing alert dialog to decide if the user wants to edit their profile or not
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("Would you like to edit your profile?").setPositiveButton("Yes", dialogClickListener)
                 .setNegativeButton("No", dialogClickListener).show();
     }
 
+    //Purpose: To go back to login
     public void goBackToLogin(View v) {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);

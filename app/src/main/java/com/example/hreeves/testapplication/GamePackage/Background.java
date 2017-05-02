@@ -9,13 +9,13 @@ import android.graphics.Canvas;
 
 public class Background {
 
-    private Bitmap image;
-    private int x, y, dx;
+    private Bitmap image; //Bitmap containing the PNG image displaying the background
+    private int x, y, dx; // x and y positions with the direction of x 'dx' vector determining movement of the frame
 
     public Background(Bitmap res) {
 
-        image = res;
-        dx = GamePanel.MOVESPEED;
+        image = res;                //sets image
+        dx = GamePanel.MOVESPEED;   //sets rate of change of scrolling background
 
     }
 
@@ -31,6 +31,8 @@ public class Background {
         }
 
     }
+
+    //Redraws the canvas to create illusion of movement
     public void draw(Canvas canvas) {
 
         canvas.drawBitmap(image, x, y, null);

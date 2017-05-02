@@ -2,17 +2,12 @@ package com.example.hreeves.testapplication.GamePackage;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-import android.view.View;
-
-import com.example.hreeves.testapplication.MainActivity;
-import com.example.hreeves.testapplication.MessengerActivity;
 import com.example.hreeves.testapplication.R;
 
 import java.util.ArrayList;
@@ -24,7 +19,7 @@ import java.util.Random;
 
 public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
 
-    public static final float BITMAPSCALE = 3.5f;
+    public static final float BITMAPSCALE = 3.5f; //Scaling ratio for operating with png files on a nexus 6 (png files are represented as 3.5 times smaller
 
     public static final int WIDTH = (int)(856 * BITMAPSCALE);
     public static final int HEIGHT = (int)(480 * BITMAPSCALE);

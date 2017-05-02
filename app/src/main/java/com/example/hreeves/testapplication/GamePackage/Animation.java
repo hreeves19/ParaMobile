@@ -8,11 +8,11 @@ import android.graphics.Bitmap;
 
 public class Animation {
 
-    private Bitmap[] frames;
-    private int currentFrame;
-    private long startTime;
-    private long delay;
-    private boolean playedOnce;
+    private Bitmap[] frames;        //Number of frame steps the animation runs through (ex. 3 for the helicopter)
+    private int currentFrame;       //Where the frame currently is
+    private long startTime;         //Start time in nanoseconds
+    private long delay;             //Time between each individual frame
+    private boolean playedOnce;     //boolean for if one full animation cycle has been played
 
     public void setFrames(Bitmap[] frames) {
 
@@ -29,6 +29,7 @@ public class Animation {
 
         long elapsed = (System.nanoTime() - startTime) / 1000000;
 
+        //Once a certain amount of time has passed the frame will change
         if(elapsed > delay) {
 
             currentFrame++;

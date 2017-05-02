@@ -11,12 +11,12 @@ import com.example.hreeves.testapplication.GamePackage.GamePanel;
 
 public class MainThread extends Thread {
 
-    private int FPS = 30;
-    private double averageFPS;
-    private SurfaceHolder surfaceHolder;
-    private GamePanel gamePanel;
-    private boolean running;
-    public static Canvas canvas;
+    private int FPS = 30;                   //Framerate limit for the amount of frames changing
+    private double averageFPS;              //calculated average of the frames per second from computer specs
+    private SurfaceHolder surfaceHolder;    //surface where the thread is operating in - passed in from the GameActivity - GamePanel hierarchy
+    private GamePanel gamePanel;            //GamePanel object where the thread updates changes
+    private boolean running;                //Boolean for if the game is running
+    public static Canvas canvas;            //Universal static canvas where all the 2D objects are drawn
 
     public MainThread(SurfaceHolder surfaceHolder, GamePanel gamePanel) {
 

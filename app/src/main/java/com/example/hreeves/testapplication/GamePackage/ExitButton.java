@@ -12,8 +12,8 @@ import static com.example.hreeves.testapplication.GamePackage.GamePanel.BITMAPSC
 
 public class ExitButton extends GameObject{
 
-    private Bitmap spriteSheet;
-    private Bitmap scaledBitmap;
+    private Bitmap spriteSheet; //PNG file containing image
+    private Bitmap scaledBitmap; //scaled version of the image to fit properly
 
     public ExitButton(Bitmap res, int w, int h) {
 
@@ -29,27 +29,25 @@ public class ExitButton extends GameObject{
 
     }
 
+    //Function to rescale the exit button
     public static Bitmap scaleDown(Bitmap realImage, float maxImageSize,
                                    boolean filter) {
         float ratio = Math.min(
-                (float) maxImageSize / realImage.getWidth(),
-                (float) maxImageSize / realImage.getHeight());
-        int width = Math.round((float) ratio * realImage.getWidth());
-        int height = Math.round((float) ratio * realImage.getHeight());
+                maxImageSize / realImage.getWidth(),
+                maxImageSize / realImage.getHeight());
+        int width = Math.round(ratio * realImage.getWidth());
+        int height = Math.round(ratio * realImage.getHeight());
 
         Bitmap newBitmap = Bitmap.createScaledBitmap(realImage, width,
                 height, filter);
         return newBitmap;
     }
 
-    public void update() {
-
-
-
-    }
+    public void update() {}
 
     public void draw(Canvas canvas) {
 
+        //Redraws exit button on canvas
         canvas.drawBitmap(scaledBitmap, getX(), getY(), null);
 
     }

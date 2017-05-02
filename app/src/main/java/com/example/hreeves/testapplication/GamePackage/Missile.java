@@ -14,13 +14,13 @@ import java.util.Random;
 
 public class Missile extends GameObject {
 
-    private int score;
-    private int speed;
+    private int score; //Score of the player which alters the behavior of the missile
+    private int speed; //speed of the missile manifest
 
-    private Random rand = new Random();
+    private Random rand = new Random(); //RNG for causing random missile spawn behaviors
 
-    private Animation animation = new Animation();
-    private Bitmap spriteSheet;
+    private Animation animation = new Animation(); //Animation component for handling frame by frame animation changes
+    private Bitmap spriteSheet; //SpriteSheet containing the images of the missiles
 
 
 
@@ -52,6 +52,7 @@ public class Missile extends GameObject {
 
     }
 
+    //updates parameters regularly
     public void update() {
 
         setX(getX() - speed);
@@ -59,6 +60,7 @@ public class Missile extends GameObject {
 
     }
 
+    //redraws the representation of the missile on the canvas
     public void draw(Canvas canvas) {
 
         try {

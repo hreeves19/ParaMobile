@@ -12,7 +12,7 @@ import com.example.hreeves.testapplication.GamePackage.GameObject;
 
 public class SmokePuff extends GameObject {
 
-    public int r; //radius
+    public int r; //radius of the smoke cloud
 
     public SmokePuff(int x, int y) {
 
@@ -24,10 +24,13 @@ public class SmokePuff extends GameObject {
 
     public void update() {
 
+        //Sets each smoke puff back in space to create the illusion of helicopter moving
+        //accross x-axis
         setX(getX() - 10);
 
     }
 
+    //Function repaints the canvas with a smoke cloud object
     public void draw(Canvas canvas) {
 
         Paint paint = new Paint();

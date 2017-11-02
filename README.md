@@ -11,5 +11,3 @@ Developed by:
 Jared Stowell
 Henry "Court" Reeves
 David Gray
-
-Hi Alihan.
